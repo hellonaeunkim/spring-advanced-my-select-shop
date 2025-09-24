@@ -46,6 +46,7 @@ public class ProductService {
         return new ProductResponseDto(product);
     }
 
+    @Transactional(readOnly = true)
     public Page<ProductResponseDto> getProducts(User user, int page, int size, String sortBy,
             boolean isAsc) {
         // 정렬 기준과 방향 설정
@@ -55,7 +56,7 @@ public class ProductService {
 
         // 유저 권한 확인
         UserRoleEnum userRoleEnum = user.getRole();
-        
+
         Page<Product> productList;
 
         if (userRoleEnum == UserRoleEnum.USER) {
