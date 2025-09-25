@@ -53,7 +53,7 @@ public class Product extends BaseEntity {
     private User user;
 
     @OneToMany(mappedBy = "product")
-    private List<ProductFolder> productFolerList = new ArrayList<>();
+    private List<ProductFolder> productFolderList = new ArrayList<>();
 
     public Product(ProductRequestDto requestDto, User user) {
         this.title = requestDto.getTitle();

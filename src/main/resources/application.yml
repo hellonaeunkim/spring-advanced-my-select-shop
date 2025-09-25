@@ -1,0 +1,27 @@
+spring:
+  config:
+    import: optional:file:.env[.properties]
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/shop
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+jpa:
+  hibernate:
+    ddl-auto: update
+  properties:
+    hibernate:
+      show_sql: true
+      format_sql: true
+      use_sql_comments: true
+
+jwt:
+  secret:
+    key: ${JWT_SECRET_KEY}
+
+naver:
+  client:
+    id: ${Client-Id}
+    secret: ${Client-Secret}
